@@ -1,0 +1,20 @@
+vector<int> Solution::repeatedNumber(const vector<int> &A) {
+    
+    vector<bool> mp(A.size()+1 , false);
+    int rep;
+    for(auto x:A ){
+        if(!mp[x])
+        mp[x] = true;
+        else
+        rep = x;
+    }
+    
+    int non;
+    for(int i = 1 ; i<A.size()+1 ; i++){
+        if(!mp[i]){
+            non = i;
+            break;
+        }
+    }
+    return {rep , non};
+}
